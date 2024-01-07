@@ -4,6 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
+    zIndex: {
+      '1': '1',
+      '2': '2',
+      '3': '3',
+      "4": '4',
+    },
     fontSize: {
       sm: '0.8rem',
       base: '1rem',
@@ -14,6 +20,18 @@ module.exports = {
       '5xl': '3.052rem',
     },
     extend: {
+      borderRadius: {
+        '32': '2rem',
+      },
+      spacing: {
+        '266': "16.625rem",
+        '347': "21.6875rem",
+        '232': "14.5rem",
+        '143': "8.9375rem",
+        '167': '10.4375rem',
+        '151': '9.4375rem',
+        '56': '3.4375re,'
+      },
       colors: {
         //primary color defined
         'primary-black': "#000000",
@@ -23,6 +41,7 @@ module.exports = {
         "primary-ligh-white": "#CCCCCC",
         "primary-grey-white": "#EBECF5",
         "primary-blue-shade": "#3C479D",
+        "primary-background": "F7F7F7"
         //add secondary color if  needed
       }
     },
