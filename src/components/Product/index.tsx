@@ -1,13 +1,12 @@
 import { SVGS } from 'assets/images/svgs';
 import TitleBlock from 'components/TitleBlock'
-import { CardData, AccordContent } from './type';
+import { CardData } from './type';
 import Card from './Card';
 import { useState } from 'react';
 import CardDetails from './CardDetail';
 import Modal from 'components/Modal';
 
 const Product = () => {
-  const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<number | undefined>(1)
   const { CardOneIcon, CardTwoIcon, CardThreeIcon, CardFourIcon, AccordOneNFiveIcon, AccordTwoNFourIcon, AccordThreeIcon } = SVGS
   //dummy data can be fetched from backend accordingly
@@ -83,10 +82,10 @@ const Product = () => {
           {cardData?.map(item => <Card product={item.product} accordContent={item?.accordContent} active={active} key={item?.id} setActive={setActive} id={item.id} logo={item?.logo} headerText={item?.headerText} bodyText={item?.bodyText} buttonText={item?.buttonText} />)}
         </div>
         {cardData
-          .filter(item => item.id == active)
+          .filter(item => item.id === active)
           .map(item => (
             <div key={item.id}>
-              <div className={`${item.id == active && 'mt-10 hidden md:px-16 md:py-12 md:block bg-primary-yellow-light rounded-40'}`}>
+              <div className={`${item.id === active && 'mt-10 hidden md:px-16 md:py-12 md:block bg-primary-yellow-light rounded-40'}`}>
 
                 <CardDetails product={item.product} accordContent={item.accordContent} id={item?.id} />
               </div>

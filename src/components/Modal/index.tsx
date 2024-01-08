@@ -8,7 +8,6 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ cardData }) => {
-
     const { activeId, openModal, updateOpenModal } = productStore();
     const handleCloseModal = () => {
         updateOpenModal(false);
@@ -27,7 +26,7 @@ const Modal: React.FC<ModalProps> = ({ cardData }) => {
                         <div className="mb-4">
 
                             {cardData
-                                .filter(item => item.id == activeId)
+                                .filter(item => item.id === activeId)
                                 ?.map(item => (
                                     <div key={item.id}>
                                         <div className='flex flex-col gap-5 p-2'>
