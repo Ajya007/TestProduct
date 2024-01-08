@@ -23,13 +23,10 @@ const CardDetails = ({
         <h1 className='text-32 text-primary-black font-semibold	'>
           {product?.title}
         </h1>
-        <p className='text-xl mt-6 text-primary-black font-normal'>
-          {' '}
-          {product?.detail}
-        </p>
+        <p className='p-detail-font'> {product?.detail}</p>
         <button
           onClick={modalHandler}
-          className='-ml-6 hidden md:block mt-12 bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black'
+          className='-ml-6  hidden md:block primary-orange-btn'
         >
           {product?.buttonText}
         </button>
@@ -77,7 +74,7 @@ const CardDetails = ({
       <div>
         <button
           onClick={modalHandler}
-          className=' md:hidden bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black'
+          className=' md:hidden primary-orange-btn'
         >
           {product?.buttonText}
         </button>

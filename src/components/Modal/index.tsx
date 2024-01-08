@@ -31,9 +31,7 @@ const Modal: React.FC<ModalProps> = ({ cardData }) => {
                       <div className=' flex justify-between'>
                         <div className='flex  gap-5 items-center w-full'>
                           <p>{item?.logo}</p>
-                          <h1 className='md:max-w-143 w-167 font-semibold text-xl'>
-                            {item?.headerText}
-                          </h1>
+                          <h1 className='heading-font'>{item?.headerText}</h1>
                         </div>
                         <div
                           onClick={handleCloseModal}
@@ -46,20 +44,14 @@ const Modal: React.FC<ModalProps> = ({ cardData }) => {
                         <h1 className='text-32 text-primary-black font-semibold	'>
                           {item?.product?.title}
                         </h1>
-                        <p className='text-xl mt-6 text-primary-black font-normal'>
-                          {' '}
-                          {item?.product?.detail}
-                        </p>
+                        <p className='p-detai-font'> {item?.product?.detail}</p>
                       </div>
                     </div>
                   </div>
                 ))}
             </div>
             <div className='flex justify-end'>
-              <button
-                className='bg-blue-500 text-white px-5 py-3 rounded hover:bg-blue-600'
-                onClick={handleCloseModal}
-              >
+              <button className='primary-blue-btn' onClick={handleCloseModal}>
                 Close
               </button>
             </div>

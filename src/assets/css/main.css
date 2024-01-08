@@ -2,17 +2,54 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  /* card styling */
+  .product-card-style {
+    @apply cursor-pointer relative z-2 bg-slate-50 md:hover:-translate-y-1 md:transition md:ease-in-out md:duration-500 md:w-266 w-347 md:h-232  h-24 border border-solid border-primary-ligh-white rounded-lg;
+  }
+  /* primary orange button styling */
+  .primary-orange-btn {
+    @apply mt-12 bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black;
+  }
+
+  /* card detail styling for larger screen */
+  .card-detail-style-md {
+    @apply mt-10 hidden md:px-16 md:py-12 md:block bg-primary-yellow-light rounded-40;
+  }
+
+  /* card detail styling for mobile screen */
+  .card-detail-style-sm {
+    @apply px-8 md:hidden min-h-6  w-347 -translate-y-4 relative bg-primary-yellow-light rounded-br-2xl rounded-bl-2xl;
+  }
+
+  /* primary grey button style */
+  .primary-grey-btn {
+    @apply z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32;
+  }
+
+  /* primary blue button style */
+  .primary-blue-btn {
+    @apply bg-blue-500 text-white px-5 py-3 rounded hover:bg-blue-600;
+  }
+
+  .p-detail-font {
+    @apply text-xl mt-6 text-primary-black font-normal;
+  }
+
+  .heading-font {
+    @apply md:max-w-143 w-167 font-semibold text-xl;
+  }
+}
 
 @font-face {
   font-family: 'Poppins';
   src: url('../fonts//Poppins-Regular.ttf') format('truetype');
 }
 
-
 body {
   margin: 0;
   padding: 0;
-  background-color: #F7F7F7;
+  background-color: #f7f7f7;
   font-family: 'Poppins';
 }
 
