@@ -27,21 +27,21 @@ const Card: React.FC<CardProps> = ({ id, product, active, logo, headerText, body
                                 <p>{logo}</p>
                                 <h1 className='md:max-w-143 w-167 font-semibold text-xl'>{headerText}</h1>
                             </div>
-                            <div className='md:hidden text-primary-blue-shade text-xl'>{id == active ? '-' : '+'}</div>
+                            <div className='md:hidden text-primary-blue-shade text-xl'>{id === active ? '-' : '+'}</div>
                         </div>
                         <p className='md:block hidden'>{bodyText}</p>
                     </div>
                     <div className='md:block hidden'>
 
-                        <button className={`${id == active && `-translate-y-6p bg-primary-yellow-dark `} z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32`} type="button" onClick={modalHandler}>
+                        <button className={`${id === active && `-translate-y-6p bg-primary-yellow-dark `} z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32`} type="button" onClick={modalHandler}>
                             <p className='text-base font-medium'  >{buttonText}</p>
                             <ArrowDownIcon />
                         </button>
-                        <div style={{ width: "151px", height: "56px" }} className={`${!(id == active) && 'hidden'} absolute left-0 z-3 bottom-0 bg-primary-blue-shade rounded-tr-32`}></div>
+                        <div style={{ width: "151px", height: "56px" }} className={`${!(id === active) && 'hidden'} absolute left-0 z-3 bottom-0 bg-primary-blue-shade rounded-tr-32`}></div>
                     </div>
                 </div>
             </div>
-            <div className={`px-8 md:hidden min-h-6  w-347 -translate-y-4 relative bg-primary-yellow-light rounded-br-2xl rounded-bl-2xl ${!(id == active) ? "z-1" : 'z-4 pt-8 pb-10  rounded-tr-2xl rounded-tl-2xl '} `}  ><CardDetails product={product} hide={!(id == active)} accordContent={accordContent} id={id} /></div>
+            <div className={`px-8 md:hidden min-h-6  w-347 -translate-y-4 relative bg-primary-yellow-light rounded-br-2xl rounded-bl-2xl ${!(id === active) ? "z-1" : 'z-4 pt-8 pb-10  rounded-tr-2xl rounded-tl-2xl '} `}  ><CardDetails product={product} hide={!(id === active)} accordContent={accordContent} id={id} /></div>
         </div >
     );
 };

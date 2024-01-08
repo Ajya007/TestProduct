@@ -15,8 +15,8 @@ interface ProductStoreActions {
 const productStore = create<ProductStoreState & ProductStoreActions>(set => ({
     activeId: 0,
     openModal: false,
-    updateActiveId: (payload: number | undefined) => set(state => ({ activeId: payload })),
-    updateOpenModal: (payload: boolean) => set(state => ({ openModal: payload })),
+    updateActiveId: (payload: number | undefined) => set(() => ({ activeId: payload })),
+    updateOpenModal: (payload: boolean) => set(() => ({ openModal: payload })),
 }));
 
 export default productStore;
