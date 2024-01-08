@@ -30,7 +30,7 @@ const CardDetails = ({ id, hide, accordContent, product }: CardDetailsProps) => 
                 <div className='flex flex-col gap-6'>
 
                     {accordContent.map(item => <div onClick={() => {
-                        openId == item?.id ? setOpenId(0) : setOpenId(item?.id);
+                        openId === item?.id ? setOpenId(0) : setOpenId(item?.id);
                     }} key={item?.id} className='flex flex-col gap-6'>
 
                         <div>
@@ -39,11 +39,11 @@ const CardDetails = ({ id, hide, accordContent, product }: CardDetailsProps) => 
                                     {item.logo}
                                     <p className='text-18 font-medium'>{item.title}</p>
                                 </div>
-                                <div className={`${item?.id == openId ? "rotate-180 ease-in-out transition duration-300" : ''} `}><AccordianArrowIcon /> </div>
+                                <div className={`${item?.id === openId ? "rotate-180 ease-in-out transition duration-300" : ''} `}><AccordianArrowIcon /> </div>
 
                             </div>
 
-                            {item?.id == openId &&
+                            {item?.id === openId &&
                                 <div className="p-6" key={item?.id}>{item?.bodyText}</div>}</div>
                         <div className='w-full h-1p bg-primary-black'></div>
 
