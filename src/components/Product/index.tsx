@@ -4,8 +4,10 @@ import { CardData, AccordContent } from './type';
 import Card from './Card';
 import { useState } from 'react';
 import CardDetails from './CardDetail';
+import Modal from 'components/Modal';
 
 const Product = () => {
+  const [open, setOpen] = useState<boolean>(false)
   const [active, setActive] = useState<number | undefined>(1)
   const { CardOneIcon, CardTwoIcon, CardThreeIcon, CardFourIcon, AccordOneNFiveIcon, AccordTwoNFourIcon, AccordThreeIcon } = SVGS
   //dummy data can be fetched from backend accordingly
@@ -91,8 +93,7 @@ const Product = () => {
 
             </div>
           ))}
-
-
+        <Modal cardData={cardData} />
       </div>
     </div>
   )

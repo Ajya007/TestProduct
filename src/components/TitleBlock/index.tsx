@@ -1,5 +1,6 @@
+import { memo } from "react";
 
-type alignTypes = "items-start" | "items-end"  | 'items-center'
+type alignTypes = "items-start" | "items-end" | 'items-center'
 
 interface TitleProps {
     title?: string;
@@ -11,11 +12,11 @@ interface TitleProps {
 
 const TitleBlock = ({ title = 'Section Title', subTitle = 'Section Sub Title', align = "items-center" }: TitleProps) => {
     return (
-        <div data-testid="title-block"className={`${align} flex flex-col gap-3.5 justify-center`} >
+        <div data-testid="title-block" className={`${align} flex flex-col gap-3.5 justify-center`} >
             <h1 className="text-4xl font-semibold">{title}</h1>
             <h2 className="text-2xl font-medium">{subTitle}</h2>
         </div>
     )
 }
 
-export default TitleBlock
+export default memo(TitleBlock)

@@ -2,14 +2,20 @@ import React from 'react';
 import { CardProps } from './type';
 import { SVGS } from "assets/images/svgs/index"
 import CardDetails from './CardDetail';
-import Product from '.';
+import productStore from 'store';
 
 const Card: React.FC<CardProps> = ({ id, product, active, logo, headerText, bodyText, buttonText, setActive, accordContent }) => {
     const { ArrowDownIcon } = SVGS
+    const { updateOpenModal, updateActiveId } = productStore();
     const handleCardClick = () => {
         setActive(active === id ? 0 : id);
     };
 
+    const modalHandler = (e: any) => {
+        e.stopPropagation()
+        updateActiveId(id);
+        updateOpenModal(true)
+    }
 
     return (
         <div>
@@ -27,8 +33,8 @@ const Card: React.FC<CardProps> = ({ id, product, active, logo, headerText, body
                     </div>
                     <div className='md:block hidden'>
 
-                        <button className={`${id == active && `-translate-y-6p bg-primary-yellow-dark `} z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32`} type="button" onClick={(e) => e.stopPropagation()}>
-                            <p className='text-base font-medium' >{buttonText}</p>
+                        <button className={`${id == active && `-translate-y-6p bg-primary-yellow-dark `} z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32`} type="button" onClick={modalHandler}>
+                            <p className='text-base font-medium'  >{buttonText}</p>
                             <ArrowDownIcon />
                         </button>
                         <div style={{ width: "151px", height: "56px" }} className={`${!(id == active) && 'hidden'} absolute left-0 z-3 bottom-0 bg-primary-blue-shade rounded-tr-32`}></div>

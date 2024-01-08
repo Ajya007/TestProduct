@@ -1,20 +1,27 @@
 import { useState } from 'react'
 import { CardDetailsProps } from './type'
 import { SVGS } from 'assets/images/svgs'
+import productStore from 'store'
 
 
 
 
 const CardDetails = ({ id, hide, accordContent, product }: CardDetailsProps) => {
     const { AccordianArrowIcon } = SVGS
+    const { updateOpenModal, updateActiveId } = productStore();
     const [openId, setOpenId] = useState<number>(0)
+    const modalHandler = () => {
+        updateActiveId(id);
+        updateOpenModal(true)
+    }
+
     return (
         <div className={`${hide && 'hidden'} md:flex md:gap-16`}>
 
             <div className='max-w-465 md:py-8'>
                 <h1 className='text-32 text-primary-black font-semibold	'>{product?.title}</h1>
                 <p className='text-xl mt-6 text-primary-black font-normal'> {product?.detail}</p>
-                <button className='-ml-6 hidden md:block mt-12 bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black'>{product?.buttonText}</button>
+                <button onClick={modalHandler} className='-ml-6 hidden md:block mt-12 bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black'>{product?.buttonText}</button>
             </div>
 
 
@@ -47,7 +54,7 @@ const CardDetails = ({ id, hide, accordContent, product }: CardDetailsProps) => 
             </div>
 
             <div>
-                <button className=' md:hidden bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black'>{product?.buttonText}</button>
+                <button onClick={modalHandler} className=' md:hidden bg-primary-orange rounded-40 border h-16 w-262 border-solid border-primary-black  text-xl text-primary-black'>{product?.buttonText}</button>
             </div>
 
 
