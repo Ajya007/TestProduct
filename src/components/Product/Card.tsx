@@ -2,8 +2,9 @@ import React from 'react';
 import { CardProps } from './type';
 import { SVGS } from "assets/images/svgs/index"
 import CardDetails from './CardDetail';
+import Product from '.';
 
-const Card: React.FC<CardProps> = ({ id, active, logo, headerText, bodyText, buttonText, setActive, accordContent }) => {
+const Card: React.FC<CardProps> = ({ id, product, active, logo, headerText, bodyText, buttonText, setActive, accordContent }) => {
     const { ArrowDownIcon } = SVGS
     const handleCardClick = () => {
         setActive(active === id ? 0 : id);
@@ -12,7 +13,7 @@ const Card: React.FC<CardProps> = ({ id, active, logo, headerText, bodyText, but
 
     return (
         <div>
-            <div onClick={handleCardClick} className='cursor-pointer relative z-2 bg-slate-50 md:hover:-translate-y-1 md:transition ma:ease-in-out md:duration-900 md:w-266 w-347 md:h-232  h-24 border border-solid border-primary-ligh-white rounded-lg'>
+            <div onClick={handleCardClick} className='cursor-pointer relative z-2 bg-slate-50 md:hover:-translate-y-1 md:transition md:ease-in-out md:duration-500 md:w-266 w-347 md:h-232  h-24 border border-solid border-primary-ligh-white rounded-lg'>
                 <div className='flex gap-4 justify-between flex-col h-full'>
                     <div className='flex gap-4 md:justify-start flex-col md:px-6 md:pt-6 md:pb-0 px-8 pt-6 pb-6'>
                         <div className='flex gap:5 items-center w-full h-12' >
@@ -24,9 +25,9 @@ const Card: React.FC<CardProps> = ({ id, active, logo, headerText, bodyText, but
                         </div>
                         <p className='md:block hidden'>{bodyText}</p>
                     </div>
-                    <div className='md:block hidden  bg-slate-400'>
+                    <div className='md:block hidden'>
 
-                        <button className={`${id == active && `-translate-y-1 bg-primary-yellow-dark `} z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32`} type="button" onClick={(e) => e.stopPropagation()}>
+                        <button className={`${id == active && `-translate-y-6p bg-primary-yellow-dark `} z-4 relative h-56 bg-primary-ligh-white hover:bg-primary-yellow-dark px-6 py-4 flex items-center justify-center gap-4 rounded-tr-32`} type="button" onClick={(e) => e.stopPropagation()}>
                             <p className='text-base font-medium' >{buttonText}</p>
                             <ArrowDownIcon />
                         </button>
@@ -34,7 +35,7 @@ const Card: React.FC<CardProps> = ({ id, active, logo, headerText, bodyText, but
                     </div>
                 </div>
             </div>
-            <div className='md:hidden min-h-3 -translate-y-2 relative z-1 bg-primary-yellow-light rounded-br-lg rounded-bl-lg'> {id == active && <CardDetails accordContent={accordContent} id={id} />}</div>
+            <div className={`px-8 md:hidden min-h-6  w-347 -translate-y-4 relative bg-primary-yellow-light rounded-br-2xl rounded-bl-2xl ${!(id == active) ? "z-1" : 'z-4 pt-8 pb-10  rounded-tr-2xl rounded-tl-2xl '} `}  ><CardDetails product={product} hide={!(id == active)} accordContent={accordContent} id={id} /></div>
         </div >
     );
 };

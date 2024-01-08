@@ -17,7 +17,6 @@ body {
 }
 
 .wrapper {
-  max-width: 1440px;
+  max-width: 1103px;
   margin: 0 auto;
-  padding: 0 20px;
 }
